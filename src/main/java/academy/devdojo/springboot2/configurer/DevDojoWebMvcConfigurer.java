@@ -10,12 +10,11 @@ import java.util.List;
 
 @Configuration
 public class DevDojoWebMvcConfigurer implements WebMvcConfigurer {
+
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
-        WebMvcConfigurer.super.addArgumentResolvers(resolvers);
-        PageableHandlerMethodArgumentResolver pageableHandler = new PageableHandlerMethodArgumentResolver();
-        pageableHandler.setFallbackPageable(PageRequest.of(0, 4));
-        resolvers.add(pageableHandler);
-
+        PageableHandlerMethodArgumentResolver pageHandler = new PageableHandlerMethodArgumentResolver();
+        pageHandler.setFallbackPageable(PageRequest.of(0, 5));
+        resolvers.add(pageHandler);
     }
 }
